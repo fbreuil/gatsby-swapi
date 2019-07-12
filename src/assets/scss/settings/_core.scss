@@ -1,0 +1,52 @@
+///* ========================================================================
+//   VARIABLES
+//   ======================================================================== */
+
+// Colors
+$black: #161c20;
+$white: #fff;
+$dark: #060809;
+$light: #878798;
+
+// Typhography
+$background-color: $black;
+$font-family: Helvetica, Arial, sans-serif;
+$font-size: 14;
+$line-height: 22;
+$font-weight: 400;
+$font-color: $white;
+$link-color: $white;
+$link-hover-color: $light;
+
+// Headings
+$heading-font-family: Helvetica, Arial, sans-serif;
+$h1-font-size: 18;
+$h1-line-height: 38;
+$h1-font-weight: 100;
+$h1-color: $white;
+
+// Input & Select
+$input-height: 32px;
+$input-placeholder-color: $light;
+$input-color: $white;
+$input-background-color: $dark;
+$input-border-color: $dark;
+
+// Containers
+$container-full: 100%;
+$container-s: 480px;
+$container-m: 720px;
+$container-l: 960px;
+$container-xl: 1200px;
+
+// Gutters
+$grid-gutter: 15px;
+$grid-gutter-m: 15px;
+$grid-gutter-l: 15px;
+$grid-gutter-xl: 15px;
+
+// Breakpoints
+$breakpoint-s: ($container-s + 20);
+$breakpoint-m: ($container-m + 20);
+$breakpoint-l: ($container-l + 20);
+$breakpoint-xl: ($container-xl + 20);

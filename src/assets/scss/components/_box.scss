@@ -1,0 +1,25 @@
+///* ========================================================================
+//   BOX CONTAINER
+//   ======================================================================== */
+
+.box-container {
+  @extend .col-1-5-xl;
+
+  > a { text-decoration: none; }
+
+  > a > .box {
+    background: $dark;
+    color: $white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  > a > .box > .title {
+    font-weight: bold;
+    margin: 0;
+    @include font-size(36);
+    @include line-height(36);
+  }
+
+}
