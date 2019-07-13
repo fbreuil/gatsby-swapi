@@ -20,7 +20,7 @@ class People extends React.Component {
     this.state = {
       name: '',
       films: [],
-      peoples: []
+      characters: []
     };
 
     this.getFilms = this.getFilms.bind(this);
@@ -46,32 +46,29 @@ class People extends React.Component {
 
   getFilmsByPeople() {
     return axios.get(`https://swapi.co/api/people/?search=${this.state.name}`).then(res => {
-      const people = res.data.results;
+      const characters = res.data.results;
 
-      if ( res.data.results.length == 0 ) {
+      if ( characters.length === 0 ) {
         this.setState({
           films: [],
-          keys: []
+          keys: [],
+          characters: []
         });
 
         return;
       }
 
-      const filmsUrls = res.data.results[0].films;
-
-      this.setState({
-        people: people
-      });
+      const filmsUrls = characters[0].films;
 
       return this.getWithPromiseAll(filmsUrls).then( res => {
 
-        console.log(res);
-
         const films = res;
         const keys = Object.keys(films);
+        console.log(characters)
         this.setState({
           films: res,
-          keys: keys
+          keys: keys,
+          characters: characters
         });
       });
 
@@ -129,10 +126,11 @@ class People extends React.Component {
         </header>
 
         <section id="movies-container">
+        <span>Exibindo filmes de: (characters[0] ? characters[0].name : "") </span>
           <h1><span className="title">Filmes</span> Star Wars</h1>
           {films.map((film, keys) => {
             return (
-              <Fade>
+              <Fade key={keys}>
               <div className="box-container" key={keys}>
                 <Link to={`/movie/?id=${film.episode_id}`}>
                   <div className="box">

@@ -29,6 +29,7 @@ class Index extends React.Component {
     return axios.get(`https://swapi.co/api/films/?search=${this.state.name}`).then(res => {
       const films = res.data.results;
       const keys = Object.keys(films);
+
       this.setState({
         films: res.data.results,
         keys: keys
@@ -90,7 +91,7 @@ class Index extends React.Component {
           <h1><span className="title">Filmes</span> Star Wars</h1>
           {films.map((film, keys) => {
             return (
-              <Fade>
+              <Fade key={keys}>
               <div className="box-container" key={keys}>
                 <Link to={`/movie/?id=${film.episode_id}`}>
                   <div className="box">

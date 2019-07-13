@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import axios from "axios"
 import 'react-tippy/dist/tippy.css'
 import MovieDetail from '../components/MovieDetail';
 
@@ -16,24 +17,40 @@ class Movie extends React.Component {
     characters: []
   };
 
+  getWithPromiseAll(urls) {
+    const promises = urls.map(url => fetch(url))
+
+    return Promise.all(promises)
+      .then(responses => Promise.all(responses.map(r => r.json())));
+  }
+
   getMovie(id) {
-      return fetch(`https://swapi.co/api/films/${id}`).then(res => res.json())
-        .then(resJson =>{ const resCharacters = resJson.characters.map(url =>
-        fetch(url)
-          .then(data => data.json())
-          .then(c => c.name),
-      );
+      return axios.get(`https://swapi.co/api/films/${id}`).then(res => {
+          const film = res.data;
 
-      const characters = Promise.all(resCharacters);
-      this.setState({
-        characters: characters,
-        description: resJson.opening_crawl,
-        director: resJson.director,
-        releaseDate: resJson.release_date,
-        title: resJson.title
+          if ( res.data.length === 0 ) {
+            this.setState({
+              film: [],
+            });
+            return;
+          }
+
+          const charactersUrl = film.characters.slice(0,3);
+
+          return this.getWithPromiseAll(charactersUrl).then( res => {
+            const characters = res;
+            
+            this.setState({
+              characters: characters,
+              description: film.opening_crawl,
+              director: film.director,
+              releaseDate: film.release_date,
+              title: film.title
+            });
+
+          });
+
       });
-
-    });
   }
 
   componentDidMount() {
@@ -50,6 +67,7 @@ class Movie extends React.Component {
       releaseDate,
       director,
       description,
+      characters,
     } = this.state;
     return (
       <Fade top>
@@ -61,6 +79,7 @@ class Movie extends React.Component {
             director={director}
             releaseDate={releaseDate}
             description={description}
+            characters={characters}
           />
 
         </Layout>
