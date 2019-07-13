@@ -6,6 +6,10 @@
   @extend .row;
   display: inline-block;
   padding: 0 15px;
+}
+
+.details {
+  @extend .col-1-2-xl;
 
   > a > .back {
     margin: 50px 0;
@@ -30,15 +34,21 @@
     @include font-size(12);
   }
 
-  > .sinopse {
-    width: 100%;
-    margin-top: 30px;
-  }
+  > .sinopse { margin: 30px 0 20px 0; }
+  > p { margin: 0; }
 
-  @include breakpoint(xl) {
+}
 
-    > .sinopse { width: 50%; }
+.cover {
+  @extend .col-1-2-xl;
+  text-align: right;
 
+  > .image {
+    width: auto;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 
 }
