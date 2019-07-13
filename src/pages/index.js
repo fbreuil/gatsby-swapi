@@ -95,7 +95,7 @@ class Index extends React.Component {
               <div className="box-container" key={keys}>
                 <Link to={`/movie/?id=${film.episode_id}`}>
                   <div className="box">
-                    <h1 className="title">{film.episode_id}</h1>
+                    <img src={require(`../assets/images/films/${film.episode_id}.jpg`)} alt="Imagem da capa do filme" /> <br/>
                     {film.title}
                   </div>
                 </Link>

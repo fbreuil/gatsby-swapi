@@ -126,7 +126,6 @@ class People extends React.Component {
         </header>
 
         <section id="movies-container">
-        <span>Exibindo filmes de: (characters[0] ? characters[0].name : "") </span>
           <h1><span className="title">Filmes</span> Star Wars</h1>
           {films.map((film, keys) => {
             return (
@@ -134,7 +133,7 @@ class People extends React.Component {
               <div className="box-container" key={keys}>
                 <Link to={`/movie/?id=${film.episode_id}`}>
                   <div className="box">
-                    <h1 className="title">{film.episode_id}</h1>
+                    <img src={require(`../assets/images/films/${film.episode_id}.jpg`)} alt="Imagem da capa do filme" /> <br/>
                     {film.title}
                   </div>
                 </Link>
