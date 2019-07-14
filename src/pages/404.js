@@ -1,11 +1,18 @@
 import React from 'react'
-import Layout from '../components/layout'
+import error from '../assets/images/error.png';
 
 const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+
+  <div className="not-found">
+    <div className="error">
+      <h1 className="title">404</h1>
+      <h2 className="subtitle">Something's missing</h2>
+      <p>This page is missing or you assembled the link incorrectly</p>
+    </div>
+    <div className="image">
+      <img src={error} alt="404 Error" />
+    </div>
+  </div>
 )
 
 export default NotFoundPage
