@@ -4,6 +4,7 @@ module.exports = {
     author: "Felipe Breuil",
     description: "Stars wars project based in Gatsby"
   },
+  pathPrefix: "/gatsby-swapi",
   plugins: [
     'gatsby-plugin-react-helmet',
     {

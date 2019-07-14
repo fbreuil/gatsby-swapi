@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import axios from "axios"
 import 'react-tippy/dist/tippy.css'
 import MovieDetail from '../components/MovieDetail';
+import URLSearchParams from '@ungap/url-search-params'
 
 import Layout from '../components/layout'
 import Loading from '../components/Loading'
@@ -60,7 +61,7 @@ class Movie extends React.Component {
 
   componentWillMount() {
     this.setState({isLoading:true});
-    let search = window.location.search;
+    let search = typeof window !== 'undefined' && window.location.search;
     let params = new URLSearchParams(search);
     let id = params.get('id');
 
