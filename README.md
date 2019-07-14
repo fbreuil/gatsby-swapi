@@ -5,6 +5,8 @@ Para o sistema de grids e outros estilos basicos foi utilizado [Base](https://ge
 
 API fornecida pelo [SWAPI](https://swapi.co/).
 
+__Obs__: Sistema em inglês para uma melhor adaptação da API.
+
 # Getting Started
 Primeiro instalar as dependências: [NodeJS](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/).
 
