@@ -58,29 +58,29 @@ class Index extends React.Component {
         <header id="header">
           <Logo />
           <div className="search-field">
-            <input type="search" className="search" placeholder="Procurar filme pelo nome" ref={input => this.search = input} onChange={this.handleInputChange} />
+            <input type="search" className="search" placeholder="Search movie by name" ref={input => this.search = input} onChange={this.handleInputChange} />
             <div className="controls">
               <Link className="button" to="/people">
                 <Tooltip
-                  title="Filtrar por personagem"
+                  title="Filter by people"
                   position="bottom"
                   trigger="mouseenter"
                   theme="transparent"
                   size="small"
                 >
-                <img src={people} alt="Ícone representativo de personagem" />
+                <img src={people} alt="People icon" />
                 </Tooltip>
               </Link>
               <span className="divider" />
               <Link className="button" to="/">
                 <Tooltip
-                  title="Filtrar por nome de filme"
+                  title="Filter by movie name"
                   position="bottom"
                   trigger="mouseenter"
                   theme="transparent"
                   size="small"
                 >
-                <img src={movie} alt="Ícone representativo de filme" />
+                <img src={movie} alt="Movie icon" />
                 </Tooltip>
               </Link>
             </div>
@@ -88,14 +88,14 @@ class Index extends React.Component {
         </header>
 
         <section id="movies-container">
-          <h1><span className="title">Filmes</span> Star Wars</h1>
+          <h1><span className="title">Movies</span> Star Wars</h1>
           {films.map((film, keys) => {
             return (
               <Fade key={keys}>
               <div className="box-container" key={keys}>
                 <Link to={`/movie/?id=${film.url.slice(27, 28)}`}>
                   <div className="box">
-                    <img src={require(`../assets/images/films/${film.episode_id}.jpg`)} alt="Imagem da capa do filme" /> <br/>
+                    <img src={require(`../assets/images/films/${film.episode_id}.jpg`)} alt="Cover of movies" /> <br/>
                     {film.title}
                   </div>
                 </Link>

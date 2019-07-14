@@ -13,11 +13,11 @@ const MovieDetail = ({
 }) => (
   <section id="movie-detail">
     <div className="details">
-      <Link to="/"><img src={arrow} className="back" alt="Ícone de voltar página"/></Link>
+      <Link to="/"><img src={arrow} className="back" alt="Back page icon"/></Link>
       <h1 className="name">{title}</h1>
       <span className="subtitle">{director} - {releaseDate}</span>
       <p className="sinopse">{description}</p>
-      <h1>Personagens</h1>
+      <h1>Peoples</h1>
       {characters.map((data, i) => (
         <p key={i}>
           {data.name}
@@ -25,7 +25,7 @@ const MovieDetail = ({
       ))}
     </div>
     <div className="cover">
-      <img src={require("../assets/images/films/" + filmId + ".jpg")} alt="Imagem da capa do filme" className="image" />
+      <img src={require("../assets/images/films/" + filmId + ".jpg")} alt="Cover of movie" className="image" />
     </div>
   </section>
 
