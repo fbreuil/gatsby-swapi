@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "gatsby"
 
 import arrow from '../assets/images/arrow.svg';
+import formatDate from '../helpers/formatDate';
 
 const MovieDetail = ({
   filmId,
@@ -15,7 +16,7 @@ const MovieDetail = ({
     <div className="details">
       <Link to="/"><img src={arrow} className="back" alt="Back page icon"/></Link>
       <h1 className="name">{title}</h1>
-      <span className="subtitle">{director} - {releaseDate}</span>
+      <span className="subtitle">{director} - {formatDate(releaseDate)}</span>
       <p className="sinopse">{description}</p>
       <h1>Peoples</h1>
       {characters.map((data, i) => (
