@@ -46,12 +46,16 @@
   @extend .col-1-2-xl;
   text-align: right;
 
-  > .image {
-    width: auto;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
+  > .image { margin-top: 20px; }
+
+  @include breakpoint(xl) {
+    > .image {
+      width: auto;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
   }
 
 }

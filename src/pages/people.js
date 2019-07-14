@@ -141,8 +141,8 @@ class People extends React.Component {
                 <Link to={`/movie/?id=${film.url.slice(27, 28)}`}>
                   <div className="box">
                     <img src={require(`../assets/images/films/${film.episode_id}.jpg`)} alt="Cover of movies" /> <br/>
-                    {film.title}
                   </div>
+                  {film.title}
                 </Link>
               </div>
               </Fade>
