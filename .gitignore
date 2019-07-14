@@ -8,3 +8,5 @@ yarn.lock
 # Build directory
 public
 .DS_Store
+public/index.html
+public/page-data/dev-404-page/page-data.json
