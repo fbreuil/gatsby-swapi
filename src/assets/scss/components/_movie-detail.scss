@@ -22,7 +22,10 @@
     }
   }
 
-  > h1 { font-weight: bold; }
+  > h1 {
+    margin-bottom: 0;
+    font-weight: bold;
+  }
 
   > .name {
     margin: 0;

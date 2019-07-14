@@ -4,23 +4,8 @@
 
 #movies-container {
   @extend .row;
-  margin-top: 100px;
+  min-height: 350px;
+  margin-top: 50px;
   text-align: center;
-
-  > h1 > .title {
-    padding-left: 0;
-    font-weight: bold;
-  }
-
-}
-
-@include breakpoint(xl) {
-
-  #movies-container {
-    text-align: left;
-
-    > h1 > .title { padding-left: 15px; }
-
-  }
-
+  position: relative;
 }

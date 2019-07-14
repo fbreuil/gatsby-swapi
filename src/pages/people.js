@@ -7,6 +7,7 @@ import { Link } from "gatsby"
 
 import Layout from '../components/layout'
 import Logo from '../components/Logo'
+import Loading from '../components/Loading'
 
 import people from '../assets/images/people.svg';
 import movie from '../assets/images/movie.svg';
@@ -19,6 +20,7 @@ class People extends React.Component {
 
     this.state = {
       name: '',
+      isLoading: false,
       films: [],
       characters: []
     };
@@ -32,6 +34,7 @@ class People extends React.Component {
       const keys = Object.keys(films);
       this.setState({
         films: res.data.results,
+        isLoading: false,
         keys: keys
       });
     });
@@ -64,7 +67,6 @@ class People extends React.Component {
 
         const films = res;
         const keys = Object.keys(films);
-        console.log(characters)
         this.setState({
           films: res,
           keys: keys,
@@ -76,6 +78,7 @@ class People extends React.Component {
   }
 
   componentWillMount() {
+    this.setState({isLoading:true});
     this.getFilms();
   }
 
@@ -88,7 +91,11 @@ class People extends React.Component {
   }
 
   render() {
-    const { films } = this.state;
+    const { films, isLoading } = this.state;
+    let loading;
+    if (isLoading) {
+      loading = <Loading />
+    }
     return (
       <Layout>
         <Helmet title="SWAPI" />
@@ -126,7 +133,7 @@ class People extends React.Component {
         </header>
 
         <section id="movies-container">
-          <h1><span className="title">Movies</span> Star Wars</h1>
+          {loading}
           {films.map((film, keys) => {
             return (
               <Fade key={keys}>

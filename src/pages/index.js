@@ -7,6 +7,7 @@ import { Link } from "gatsby"
 
 import Layout from '../components/layout'
 import Logo from '../components/Logo'
+import Loading from '../components/Loading'
 
 import people from '../assets/images/people.svg';
 import movie from '../assets/images/movie.svg';
@@ -19,6 +20,7 @@ class Index extends React.Component {
 
     this.state = {
       name: '',
+      isLoading: false,
       films: []
     };
 
@@ -32,12 +34,14 @@ class Index extends React.Component {
 
       this.setState({
         films: res.data.results,
+        isLoading: false,
         keys: keys
       });
     });
   }
 
   componentWillMount() {
+    this.setState({isLoading:true});
     this.getFilms();
   }
 
@@ -50,7 +54,11 @@ class Index extends React.Component {
   }
 
   render() {
-    const { films } = this.state;
+    const { films, isLoading } = this.state;
+    let loading;
+    if (isLoading) {
+      loading = <Loading />
+    }
     return (
       <Layout>
         <Helmet title="SWAPI" />
@@ -88,10 +96,10 @@ class Index extends React.Component {
         </header>
 
         <section id="movies-container">
-          <h1><span className="title">Movies</span> Star Wars</h1>
+          {loading}
           {films.map((film, keys) => {
             return (
-              <Fade key={keys}>
+              <Fade>
               <div className="box-container" key={keys}>
                 <Link to={`/movie/?id=${film.url.slice(27, 28)}`}>
                   <div className="box">
