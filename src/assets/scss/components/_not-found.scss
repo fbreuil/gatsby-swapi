@@ -13,9 +13,9 @@
 
   > .error > .title {
     font-weight: bold;
-    margin: 50px 0 0 0;
-    @include font-size(200);
-    @include line-height(200);
+    margin: 80px 0 0 0;
+    @include font-size(150);
+    @include line-height(150);
    }
 
    > .error > .subtitle {
